@@ -1,0 +1,1907 @@
+{
+    "swagger": "2.0",
+    "host": "a.blazemeter.com",
+    "basePath": "/api/v4",
+    "produces": [
+        "application/json",
+        "text/html",
+        "text/csv",
+        "text/plain",
+        "application/csp-report",
+        "application/reports+json"
+    ],
+    "consumes": [
+        "application/json",
+        "multipart/form-data",
+        "text/csv",
+        "text/plain",
+        "application/csp-report",
+        "application/reports+json"
+    ],
+    "paths": {
+        "/user/projects": {
+            "get": {
+                "operationId": "userRetrieveProjects",
+                "tags": [
+                    "user"
+                ],
+                "parameters": [],
+                "summary": "Get user projects 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/user": {
+            "get": {
+                "operationId": "userRetrieveUser",
+                "tags": [
+                    "user"
+                ],
+                "parameters": [],
+                "summary": "Get user data without redundant data of WAP-7459. 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "$user object as array.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/ui-messages": {
+            "get": {
+                "operationId": "userRetrieveUiMessages",
+                "tags": [
+                    "user"
+                ],
+                "parameters": [
+                    {
+                        "name": "workspaceId",
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "(from@query)",
+                        "in": "query",
+                        "required": false
+                    },
+                    {
+                        "name": "projectId",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": false
+                    }
+                ],
+                "summary": "Get user ui messages 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/user/ui-messages/{messageId}": {
+            "delete": {
+                "operationId": "userRemoveUiMessage",
+                "tags": [
+                    "user"
+                ],
+                "parameters": [
+                    {
+                        "name": "messageId",
+                        "type": "string",
+                        "description": "(from@path)",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "summary": "Get user ui messages 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/user/validate": {
+            "get": {
+                "operationId": "userValidate",
+                "tags": [
+                    "user"
+                ],
+                "parameters": [],
+                "summary": "Validate user 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/user/password": {
+            "patch": {
+                "operationId": "userUpdatePassword",
+                "tags": [
+                    "user"
+                ],
+                "parameters": [
+                    {
+                        "name": "userUpdatePasswordModel",
+                        "description": "**currentPassword** (required)  \n**newPassword** (required)  \n",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/userUpdatePasswordModel"
+                        }
+                    }
+                ],
+                "summary": "Update user name 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            },
+            "put": {
+                "operationId": "userUpdatePassword",
+                "tags": [
+                    "user"
+                ],
+                "parameters": [
+                    {
+                        "name": "userUpdatePasswordModel",
+                        "description": "**currentPassword** (required)  \n**newPassword** (required)  \n",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/userUpdatePasswordModel"
+                        }
+                    }
+                ],
+                "summary": "Update user name 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "userUpdatePassword",
+                "tags": [
+                    "user"
+                ],
+                "parameters": [
+                    {
+                        "name": "userUpdatePasswordModel",
+                        "description": "**currentPassword** (required)  \n**newPassword** (required)  \n",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/userUpdatePasswordModel"
+                        }
+                    }
+                ],
+                "summary": "Update user name 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/user/register": {
+            "get": {
+                "operationId": "userRegister_retrieve",
+                "tags": [
+                    "user"
+                ],
+                "parameters": [
+                    {
+                        "name": "email",
+                        "type": "string",
+                        "description": "Email address",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "name": "password",
+                        "type": "string",
+                        "description": "Password",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "name": "firstName",
+                        "type": "string",
+                        "description": "First name",
+                        "in": "query",
+                        "required": false
+                    },
+                    {
+                        "name": "lastName",
+                        "type": "string",
+                        "description": "Last name",
+                        "in": "query",
+                        "required": false
+                    }
+                ],
+                "summary": "Registration 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "\\blazemeter\\Model\\Limits\\IncorrectConfigurationException"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "userRegister",
+                "tags": [
+                    "user"
+                ],
+                "parameters": [
+                    {
+                        "name": "userRegisterModel",
+                        "description": "**firstName** (required)  \n**lastName** (required)  \n**email** (required)  \n**password** (required)  \n",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/userRegisterModel"
+                        }
+                    }
+                ],
+                "summary": "Registration 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "\\blazemeter\\Model\\Limits\\IncorrectConfigurationException"
+                    }
+                }
+            }
+        },
+        "/user/active/terminate": {
+            "post": {
+                "operationId": "userPanic_terminate",
+                "tags": [
+                    "user"
+                ],
+                "parameters": [],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/invites": {
+            "get": {
+                "operationId": "userRetrieveInvites",
+                "tags": [
+                    "user"
+                ],
+                "parameters": [],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/validatesecretsenabled": {
+            "get": {
+                "operationId": "userValidateSecretsEnabled",
+                "tags": [
+                    "user"
+                ],
+                "parameters": [
+                    {
+                        "name": "account",
+                        "description": "",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Account"
+                        }
+                    }
+                ],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/user/validatefullsecretsfunctionalityenabled": {
+            "get": {
+                "operationId": "userValidateFullSecretsFunctionalityEnabled",
+                "tags": [
+                    "user"
+                ],
+                "parameters": [
+                    {
+                        "name": "account",
+                        "description": "",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Account"
+                        }
+                    }
+                ],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/user/assertbzmvaultenabled": {
+            "get": {
+                "operationId": "userAssertBzmVaultEnabled",
+                "tags": [
+                    "user"
+                ],
+                "parameters": [
+                    {
+                        "name": "account",
+                        "description": "",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Account"
+                        }
+                    }
+                ],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/user/assertexternalvaultenabled": {
+            "get": {
+                "operationId": "userAssertExternalVaultEnabled",
+                "tags": [
+                    "user"
+                ],
+                "parameters": [
+                    {
+                        "name": "account",
+                        "description": "",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Account"
+                        }
+                    }
+                ],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/user/settestrepository": {
+            "get": {
+                "operationId": "userSetTestRepository",
+                "tags": [
+                    "user"
+                ],
+                "parameters": [
+                    {
+                        "name": "testRepository",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/settestcollectionrepository": {
+            "get": {
+                "operationId": "userSetTestCollectionRepository",
+                "tags": [
+                    "user"
+                ],
+                "parameters": [
+                    {
+                        "name": "testCollectionRepository",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/setlogger": {
+            "get": {
+                "operationId": "userSetLogger",
+                "tags": [
+                    "user"
+                ],
+                "parameters": [
+                    {
+                        "name": "logger",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "summary": "For tests to provide a mock implementation of logger. 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/requestobject": {
+            "get": {
+                "operationId": "userRetrieveRequestObject",
+                "tags": [
+                    "user"
+                ],
+                "parameters": [
+                    {
+                        "name": "requestId",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "name": "permission",
+                        "type": "integer",
+                        "format": "int64",
+                        "defaultValue": 4096,
+                        "description": "",
+                        "in": "query",
+                        "required": false
+                    }
+                ],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/security/accounts/{accountId}/vault-settings": {
+            "get": {
+                "operationId": "bzmInactivityRetrieveVaultSettings",
+                "tags": [
+                    "security"
+                ],
+                "parameters": [
+                    {
+                        "name": "accountId",
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "summary": "Get vault security settings for an account 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            },
+            "put": {
+                "operationId": "bzmInactivityUpdateVaultSettings",
+                "tags": [
+                    "security"
+                ],
+                "parameters": [
+                    {
+                        "name": "accountId",
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "name": "bzmInactivityUpdateVaultSettingsModel",
+                        "description": "enableBzmVault  \nenableExternalVault  \n",
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/bzmInactivityUpdateVaultSettingsModel"
+                        }
+                    }
+                ],
+                "summary": "Update vault security settings for an account 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/security/accounts/{accountId}/bzm-session-inactivity-timeout": {
+            "post": {
+                "operationId": "bzmInactivitySetBzmSessionInactivityTimeout",
+                "tags": [
+                    "security"
+                ],
+                "parameters": [
+                    {
+                        "name": "accountId",
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "AccountId",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "name": "bzmInactivitySetBzmSessionInactivityTimeoutModel",
+                        "description": "**sessionInactivityTimeoutMinutes** (required)  \nsessionInactivityTimeoutEnabled  \n",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/bzmInactivitySetBzmSessionInactivityTimeoutModel"
+                        }
+                    }
+                ],
+                "summary": "Set the BzmSessionTimeout for the account 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "bzmInactivityRetrieveBzmSessionInactivityTimeout",
+                "tags": [
+                    "security"
+                ],
+                "parameters": [
+                    {
+                        "name": "accountId",
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "AccountId",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "summary": "Get the BzmSessionInactivityTimeout for the account 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/security/accounts/validatesecretsenabled": {
+            "get": {
+                "operationId": "bzmInactivityValidateSecretsEnabled",
+                "tags": [
+                    "security"
+                ],
+                "parameters": [
+                    {
+                        "name": "account",
+                        "description": "",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Account"
+                        }
+                    }
+                ],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/security/accounts/validatefullsecretsfunctionalityenabled": {
+            "get": {
+                "operationId": "bzmInactivityValidateFullSecretsFunctionalityEnabled",
+                "tags": [
+                    "security"
+                ],
+                "parameters": [
+                    {
+                        "name": "account",
+                        "description": "",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Account"
+                        }
+                    }
+                ],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/security/accounts/assertbzmvaultenabled": {
+            "get": {
+                "operationId": "bzmInactivityAssertBzmVaultEnabled",
+                "tags": [
+                    "security"
+                ],
+                "parameters": [
+                    {
+                        "name": "account",
+                        "description": "",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Account"
+                        }
+                    }
+                ],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/security/accounts/assertexternalvaultenabled": {
+            "get": {
+                "operationId": "bzmInactivityAssertExternalVaultEnabled",
+                "tags": [
+                    "security"
+                ],
+                "parameters": [
+                    {
+                        "name": "account",
+                        "description": "",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Account"
+                        }
+                    }
+                ],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/security/accounts/settestrepository": {
+            "get": {
+                "operationId": "bzmInactivitySetTestRepository",
+                "tags": [
+                    "security"
+                ],
+                "parameters": [
+                    {
+                        "name": "testRepository",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/security/accounts/settestcollectionrepository": {
+            "get": {
+                "operationId": "bzmInactivitySetTestCollectionRepository",
+                "tags": [
+                    "security"
+                ],
+                "parameters": [
+                    {
+                        "name": "testCollectionRepository",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/security/accounts/setlogger": {
+            "get": {
+                "operationId": "bzmInactivitySetLogger",
+                "tags": [
+                    "security"
+                ],
+                "parameters": [
+                    {
+                        "name": "logger",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "summary": "For tests to provide a mock implementation of logger. 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/security/accounts/requestobject": {
+            "get": {
+                "operationId": "bzmInactivityRetrieveRequestObject",
+                "tags": [
+                    "security"
+                ],
+                "parameters": [
+                    {
+                        "name": "requestId",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "name": "permission",
+                        "type": "integer",
+                        "format": "int64",
+                        "defaultValue": 4096,
+                        "description": "",
+                        "in": "query",
+                        "required": false
+                    }
+                ],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/rss/accounts/{accountId}/private-locations/versions": {
+            "get": {
+                "operationId": "rssRssFeed",
+                "tags": [
+                    "rss"
+                ],
+                "parameters": [
+                    {
+                        "name": "accountId",
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "name": "history",
+                        "type": "boolean",
+                        "description": "",
+                        "in": "query",
+                        "required": false
+                    },
+                    {
+                        "name": "authTokenId",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": false
+                    },
+                    {
+                        "name": "authToken",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": false
+                    },
+                    {
+                        "name": "regenerateAuthToken",
+                        "type": "boolean",
+                        "description": "",
+                        "in": "query",
+                        "required": false
+                    },
+                    {
+                        "name": "includeBrowsers",
+                        "type": "boolean",
+                        "description": "",
+                        "in": "query",
+                        "required": false
+                    }
+                ],
+                "summary": "Get an RSS feed for the harbor component versions 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/rss/accounts/{accountId}/harbors/versions": {
+            "get": {
+                "operationId": "rssRssFeed",
+                "tags": [
+                    "rss"
+                ],
+                "parameters": [
+                    {
+                        "name": "accountId",
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "name": "history",
+                        "type": "boolean",
+                        "description": "",
+                        "in": "query",
+                        "required": false
+                    },
+                    {
+                        "name": "authTokenId",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": false
+                    },
+                    {
+                        "name": "authToken",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": false
+                    },
+                    {
+                        "name": "regenerateAuthToken",
+                        "type": "boolean",
+                        "description": "",
+                        "in": "query",
+                        "required": false
+                    },
+                    {
+                        "name": "includeBrowsers",
+                        "type": "boolean",
+                        "description": "",
+                        "in": "query",
+                        "required": false
+                    }
+                ],
+                "summary": "Get an RSS feed for the harbor component versions 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/rss/settestrepository": {
+            "get": {
+                "operationId": "rssSetTestRepository",
+                "tags": [
+                    "rss"
+                ],
+                "parameters": [
+                    {
+                        "name": "testRepository",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "summary": "Class Rss 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/rss/settestcollectionrepository": {
+            "get": {
+                "operationId": "rssSetTestCollectionRepository",
+                "tags": [
+                    "rss"
+                ],
+                "parameters": [
+                    {
+                        "name": "testCollectionRepository",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "summary": "Class Rss 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/rss/setlogger": {
+            "get": {
+                "operationId": "rssSetLogger",
+                "tags": [
+                    "rss"
+                ],
+                "parameters": [
+                    {
+                        "name": "logger",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "summary": "For tests to provide a mock implementation of logger. 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/rss/requestobject": {
+            "get": {
+                "operationId": "rssRetrieveRequestObject",
+                "tags": [
+                    "rss"
+                ],
+                "parameters": [
+                    {
+                        "name": "requestId",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "name": "permission",
+                        "type": "integer",
+                        "format": "int64",
+                        "defaultValue": 4096,
+                        "description": "",
+                        "in": "query",
+                        "required": false
+                    }
+                ],
+                "summary": "Class Rss 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/frontend-assets": {
+            "get": {
+                "operationId": "frontendAssetsRetrieveHTML",
+                "tags": [
+                    "frontend-assets"
+                ],
+                "parameters": [],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/frontend-assets/v3/js": {
+            "get": {
+                "operationId": "frontendAssetsRetrievev3js",
+                "tags": [
+                    "frontend-assets"
+                ],
+                "parameters": [],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/frontend-assets/v3/css": {
+            "get": {
+                "operationId": "frontendAssetsRetrievev3css",
+                "tags": [
+                    "frontend-assets"
+                ],
+                "parameters": [],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/frontend-assets/settestrepository": {
+            "get": {
+                "operationId": "frontendAssetsSetTestRepository",
+                "tags": [
+                    "frontend-assets"
+                ],
+                "parameters": [
+                    {
+                        "name": "testRepository",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "summary": "Class FrontendAssets 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/frontend-assets/settestcollectionrepository": {
+            "get": {
+                "operationId": "frontendAssetsSetTestCollectionRepository",
+                "tags": [
+                    "frontend-assets"
+                ],
+                "parameters": [
+                    {
+                        "name": "testCollectionRepository",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "summary": "Class FrontendAssets 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/frontend-assets/setlogger": {
+            "get": {
+                "operationId": "frontendAssetsSetLogger",
+                "tags": [
+                    "frontend-assets"
+                ],
+                "parameters": [
+                    {
+                        "name": "logger",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "summary": "For tests to provide a mock implementation of logger. 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/frontend-assets/requestobject": {
+            "get": {
+                "operationId": "frontendAssetsRetrieveRequestObject",
+                "tags": [
+                    "frontend-assets"
+                ],
+                "parameters": [
+                    {
+                        "name": "requestId",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "name": "permission",
+                        "type": "integer",
+                        "format": "int64",
+                        "defaultValue": 4096,
+                        "description": "",
+                        "in": "query",
+                        "required": false
+                    }
+                ],
+                "summary": "Class FrontendAssets 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/csp-report": {
+            "post": {
+                "operationId": "cspReportReportContentSecurityPolicyViolations",
+                "tags": [
+                    "csp-report"
+                ],
+                "parameters": [
+                    {
+                        "name": "cspReportReportContentSecurityPolicyViolationsModel",
+                        "description": "**event** (required)  \n",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/cspReportReportContentSecurityPolicyViolationsModel"
+                        }
+                    }
+                ],
+                "summary": "sends csp violations 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/csp-report/validatesecretsenabled": {
+            "get": {
+                "operationId": "cspReportValidateSecretsEnabled",
+                "tags": [
+                    "csp-report"
+                ],
+                "parameters": [
+                    {
+                        "name": "account",
+                        "description": "",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Account"
+                        }
+                    }
+                ],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/csp-report/validatefullsecretsfunctionalityenabled": {
+            "get": {
+                "operationId": "cspReportValidateFullSecretsFunctionalityEnabled",
+                "tags": [
+                    "csp-report"
+                ],
+                "parameters": [
+                    {
+                        "name": "account",
+                        "description": "",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Account"
+                        }
+                    }
+                ],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/csp-report/assertbzmvaultenabled": {
+            "get": {
+                "operationId": "cspReportAssertBzmVaultEnabled",
+                "tags": [
+                    "csp-report"
+                ],
+                "parameters": [
+                    {
+                        "name": "account",
+                        "description": "",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Account"
+                        }
+                    }
+                ],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/csp-report/assertexternalvaultenabled": {
+            "get": {
+                "operationId": "cspReportAssertExternalVaultEnabled",
+                "tags": [
+                    "csp-report"
+                ],
+                "parameters": [
+                    {
+                        "name": "account",
+                        "description": "",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Account"
+                        }
+                    }
+                ],
+                "summary": " 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "RestException"
+                    }
+                }
+            }
+        },
+        "/csp-report/settestrepository": {
+            "get": {
+                "operationId": "cspReportSetTestRepository",
+                "tags": [
+                    "csp-report"
+                ],
+                "parameters": [
+                    {
+                        "name": "testRepository",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "summary": "Class CspReport 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/csp-report/settestcollectionrepository": {
+            "get": {
+                "operationId": "cspReportSetTestCollectionRepository",
+                "tags": [
+                    "csp-report"
+                ],
+                "parameters": [
+                    {
+                        "name": "testCollectionRepository",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "summary": "Class CspReport 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/csp-report/setlogger": {
+            "get": {
+                "operationId": "cspReportSetLogger",
+                "tags": [
+                    "csp-report"
+                ],
+                "parameters": [
+                    {
+                        "name": "logger",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "summary": "For tests to provide a mock implementation of logger. 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/csp-report/requestobject": {
+            "get": {
+                "operationId": "cspReportRetrieveRequestObject",
+                "tags": [
+                    "csp-report"
+                ],
+                "parameters": [
+                    {
+                        "name": "requestId",
+                        "type": "string",
+                        "description": "",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "name": "permission",
+                        "type": "integer",
+                        "format": "int64",
+                        "defaultValue": 4096,
+                        "description": "",
+                        "in": "query",
+                        "required": false
+                    }
+                ],
+                "summary": "Class CspReport 🔓",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "userUpdatePasswordModel": {
+            "properties": {
+                "currentPassword": {
+                    "type": "string",
+                    "description": ""
+                },
+                "newPassword": {
+                    "type": "string",
+                    "description": ""
+                }
+            },
+            "required": [
+                "currentPassword",
+                "newPassword"
+            ]
+        },
+        "userRegisterModel": {
+            "properties": {
+                "firstName": {
+                    "type": "string",
+                    "description": "First name"
+                },
+                "lastName": {
+                    "type": "string",
+                    "description": "Last name"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "Email address"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Password"
+                }
+            },
+            "required": [
+                "firstName",
+                "lastName",
+                "email",
+                "password"
+            ]
+        },
+        "Account": {
+            "properties": {
+                "translateFields": {
+                    "type": "string",
+                    "description": ""
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": ""
+                }
+            },
+            "required": [
+                "translateFields",
+                "data"
+            ]
+        },
+        "bzmInactivityUpdateVaultSettingsModel": {
+            "properties": {
+                "enableBzmVault": {
+                    "type": "string",
+                    "description": ""
+                },
+                "enableExternalVault": {
+                    "type": "string",
+                    "description": ""
+                }
+            }
+        },
+        "bzmInactivitySetBzmSessionInactivityTimeoutModel": {
+            "properties": {
+                "sessionInactivityTimeoutMinutes": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "Session timeout feature is enabled/disabled"
+                },
+                "sessionInactivityTimeoutEnabled": {
+                    "type": "boolean",
+                    "description": "Session timeout feature is enabled/disabled",
+                    "defaultValue": true
+                }
+            },
+            "required": [
+                "sessionInactivityTimeoutMinutes"
+            ]
+        },
+        "cspReportReportContentSecurityPolicyViolationsModel": {
+            "properties": {
+                "event": {
+                    "type": "string",
+                    "description": ""
+                }
+            },
+            "required": [
+                "event"
+            ]
+        }
+    },
+    "securityDefinitions": {
+        "api_key": {
+            "type": "apiKey",
+            "name": "api_key",
+            "in": "query"
+        }
+    },
+    "info": {
+        "version": "4",
+        "title": "BlazeMeter API",
+        "description": "API specification for BlazeMeter",
+        "contact": {
+            "name": "BlazeMeter Support",
+            "email": null,
+            "url": "https://www.blazemeter.com/contact-us"
+        },
+        "license": {
+            "name": null,
+            "url": null
+        }
+    }
+}

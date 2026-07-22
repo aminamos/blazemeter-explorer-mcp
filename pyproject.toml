@@ -1,0 +1,23 @@
+[project]
+name = "blazemeter-explorer-mcp"
+version = "0.1.0"
+description = "MCP access to the public BlazeMeter API v4 explorer"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "httpx>=0.28.1",
+  "mcp>=1.27.0",
+]
+
+[project.scripts]
+blazemeter-explorer-mcp = "blazemeter_explorer_mcp.server:main"
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["blazemeter_explorer_mcp*"]
+
+[dependency-groups]
+dev = ["pytest>=8.3"]
